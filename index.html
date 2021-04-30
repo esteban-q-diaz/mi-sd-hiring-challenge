@@ -9,66 +9,23 @@
 
 <body>
   <div id="app">
-    <div>
-      <h1 id="header">Search By Zipcode</h1>
-    </div>
+    <header>
+      <h1 class="title">Weather App</h1>
+    </header>
+
     <div class="search-container">
-        <input type="text" id="city-input" />
+        <input type="text" id="city-input" placeholder="Search by Zipcode..."/>
         <input type="submit" value="Search" id="input-btn" />
-
     </div>
-  <div class="weather">
-      <div class="weather-container">
-        <div>
-          <p class="day" id="current">-----</p>
-        </div>
 
-        <div class="weather-info">
-          <div class=“img-container”>
-            <img id="weather-img" src='img/cloudy.png' />
-          </div>
-
-          <div class="info-container">
-            <p id="weather-sum"> ----- </p>
-            <p id="high-low"> -----</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="weather-container">
-        <div>
-          <p class="day" id="tomorrow">-----</p>
-        </div>
-
-        <div class="weather-info">
-          <div class=“img-container”>
-            <img id="weather-img" src='img/cloudy.png' />
-          </div>
-
-          <div class="info-container">
-            <p id="weather-sum"> ----- </p>
-            <p id="high-low"> -----</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="weather-container">
-        <div>
-          <p class="day" id="two-days">-----</p>
-        </div>
-
-        <div class="weather-info">
-          <div class=“img-container”>
-            <img id="weather-img" src='img/cloudy.png' />
-          </div>
-
-          <div class="info-container">
-            <p id="weather-sum"> ----- </p>
-            <p id="high-low">-----</p>
-          </div>
-        </div>
-      </div>
-
+    <div class="weather">
+      <main>
+        <h1 id="location">San Jose, CA</h1>
+        <p id="date">Friday April 25th, 2021</p>
+        <p id="temp">53°F / 64°F</p>
+        <p id="summary">Clear</p>
+        <img id="weather-img" src='img/cloudy.png' />
+      </main>
     </div>
   </div>
 </body>

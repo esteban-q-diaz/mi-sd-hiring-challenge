@@ -11,12 +11,16 @@ let currentWeather = {
 // Query Selectors
 let search = document.getElementById("input-btn")
 let input = document.getElementById('city-input')
-let header = document.getElementById('header')
-let current = document.getElementById('current')
-let tomorrow = document.getElementById('tomorrow')
-let twodays = document.getElementById('two-days')
-let summary = document.getElementById('weather-sum')
-let highLow = document.getElementById('high-low')
+let location = document.getElementById('location')
+let date = document.getElementById('date')
+let temp = document.getElementById('temp')
+let summary = document.getElementById('summary')
+// let tomorrow = document.getElementById('tomorrow')
+// let twodays = document.getElementById('two-days')
+// let tomorrowSum = document.getElementById('weather-sum-tomorrow')
+// let weatherSumTwo = document.getElementById('weather-sum-two')
+// let tomorrowHL = document.getElementById('high-low-tomorrow')
+// let twoHL = document.getElementById('high-low-two')
 let img = document.getElementById('weather-img')
 
 // Controller - Get Weather Data / Update State
@@ -26,27 +30,26 @@ export let response = (weatherInfo) => {
   updateDOM()
 }
 
-let getWeather = (e) => {
-  e.preventDefault()
-  fetchLocation(zipcode)
-}
-
 let logInput = (e) => {
   let search = e.target.value
   zipcode = search
 }
 
+let getWeather = async (e) => {
+  e.preventDefault()
+  fetchLocation(zipcode)
+}
+
+
 // View - Update DOM
 let updateDOM = () => {
   let report = currentWeather.info.daily.data
 
-  header.innerHTML = `Weather Forecast for ${currentWeather.city}`
-  current.innerHTML = daysOfWeek[currentWeather.date]
-  tomorrow.innerHTML = daysOfWeek[currentWeather.date+1]
-  twodays.innerHTML = daysOfWeek[currentWeather.date+2]
+  location.innerHTML = `${currentWeather.city}, ${currentWeather.state}`
+  date.innerHTML = currentWeather.date
+  temp.innerHTML = `${Math.round(report[0].temperatureHigh)}°F / ${Math.round(report[0].temperatureLow)}°F`
   summary.innerHTML = report[0].icon
-  highLow.innerHTML = `${report[0].temperatureHigh} / ${report[0].temperatureLow} F`
-  img.src = `../img/${report[0].icon}.png`;
+  img.src = `https://weather-app-git.s3-us-west-1.amazonaws.com/${report[0].icon}.png`
 }
 
 search.addEventListener('click', getWeather);
