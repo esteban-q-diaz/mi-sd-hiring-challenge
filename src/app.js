@@ -15,12 +15,6 @@ let location = document.getElementById('location')
 let date = document.getElementById('date')
 let temp = document.getElementById('temp')
 let summary = document.getElementById('summary')
-// let tomorrow = document.getElementById('tomorrow')
-// let twodays = document.getElementById('two-days')
-// let tomorrowSum = document.getElementById('weather-sum-tomorrow')
-// let weatherSumTwo = document.getElementById('weather-sum-two')
-// let tomorrowHL = document.getElementById('high-low-tomorrow')
-// let twoHL = document.getElementById('high-low-two')
 let img = document.getElementById('weather-img')
 
 // Controller - Get Weather Data / Update State

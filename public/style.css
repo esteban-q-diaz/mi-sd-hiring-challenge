@@ -3,14 +3,37 @@ body {
   margin: 0;
   background-color: #33495F;
   text-align: center;
-  color: #fff
+  color: #fff;
+  background-image: url('https://images.pexels.com/photos/3560044/pexels-photo-3560044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
 }
 
 *:focus {
   outline: none;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0),  rgba(0, 0, 0, 0.2));
+}
 
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 120px 15px 15px;
+  font-size: 50px;
+  text-shadow: 5px 4px #141414;
+  border-radius: 15px;
+  height: 150px;
+  width: 700px;
+}
 
 /* -------- Search Container ------ */
 .search-container {
@@ -18,10 +41,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
 }
 
-#city-input {
+.search-container input {
   width: 300px;
   height: 40px;
   border: none;
@@ -29,6 +51,13 @@ body {
   text-align: center;
   font-size: 15px;
   align-items: center;
+  border-radius: 16px 0px 16px 0px;
+  border-bottom: 3px solid #9b3b2f;
+  color: #313131;
+  font-size: 20px;
+  font-weight: 300;
+  transition: 0.2s ease-out;
+  /* background-color:rgba(255, 255, 255, 0.8) */
 }
 
 #input-btn {
@@ -40,12 +69,38 @@ body {
   background-color: red;
   cursor: pointer;
 }
+
+/* -------- Weather Container ------ */
 .weather {
   display: flex;
   justify-content: space-around;
+  background-color:rgba(24, 23, 23, 0.7) ;
+  height: 550px;
+  width: 650px;
+  border-radius: 15px;
+}
+#date {
+  font-size: 15px;
+  padding-top: 25px;
+  margin: 0px;
 }
 
-/* -------- Weather Container ------ */
+#temp {
+  font-size: 102px;
+  padding-top: 25px;
+  margin: 0px;
+}
+
+#summary {
+  font-size: 30px;
+  margin: 0;
+}
+
+#weather-img {
+  width: 250px;
+  margin-top: 25px;
+}
+
 .weather-container {
   font: Arial;
   display: flex;
@@ -55,16 +110,20 @@ body {
   color: white;
 }
 
-.day {
-  background-color: blue;
+#location {
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: -15px;
+}
+
+.date {
   color: white;
-  width: 200px;
+  width: 500px;
   height: 35px;
-  font-size: 25px;
-  text-align: left;
+  font-size: 15px;
+  text-align: center;
   padding-left: 20px;
   font: Arial;
-  padding-top: 5px;
 }
 
 .weather-info {
@@ -72,8 +131,9 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  margin: -15px
+  height: 180px;
 }
+
 #weather-img {
   margin-right: 30px
 }
@@ -81,3 +141,13 @@ body {
 .info-container {
   color: white;
 }
+
+#high-low {
+  font-size: 102px;
+}
+
+#weather-sum {
+  font-size: 30px;
+  background-color: purple;
+}
+
