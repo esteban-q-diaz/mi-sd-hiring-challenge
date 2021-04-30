@@ -4,10 +4,73 @@
 <head>
   <title>Movable Ink</title>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./public/style.css">
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <div>
+      <h1 id="header">Search By Zipcode</h1>
+    </div>
+    <div class="search-container">
+        <input type="text" id="city-input" />
+        <input type="submit" value="Search" id="input-btn" />
+
+    </div>
+  <div class="weather">
+      <div class="weather-container">
+        <div>
+          <p class="day" id="current">-----</p>
+        </div>
+
+        <div class="weather-info">
+          <div class=“img-container”>
+            <img id="weather-img" src='img/cloudy.png' />
+          </div>
+
+          <div class="info-container">
+            <p id="weather-sum"> ----- </p>
+            <p id="high-low"> -----</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-container">
+        <div>
+          <p class="day" id="tomorrow">-----</p>
+        </div>
+
+        <div class="weather-info">
+          <div class=“img-container”>
+            <img id="weather-img" src='img/cloudy.png' />
+          </div>
+
+          <div class="info-container">
+            <p id="weather-sum"> ----- </p>
+            <p id="high-low"> -----</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-container">
+        <div>
+          <p class="day" id="two-days">-----</p>
+        </div>
+
+        <div class="weather-info">
+          <div class=“img-container”>
+            <img id="weather-img" src='img/cloudy.png' />
+          </div>
+
+          <div class="info-container">
+            <p id="weather-sum"> ----- </p>
+            <p id="high-low">-----</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </body>
 <script src="src/app.js"></script>
 
