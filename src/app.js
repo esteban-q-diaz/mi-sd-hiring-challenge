@@ -26,7 +26,7 @@ export let response = (weatherInfo) => {
   updateDOM()
 }
 
-let getWeather = async (e) => {
+let getWeather = (e) => {
   e.preventDefault()
   fetchLocation(zipcode)
 }
@@ -36,30 +36,19 @@ let logInput = (e) => {
   zipcode = search
 }
 
-
 // View - Update DOM
 let updateDOM = () => {
   let report = currentWeather.info.daily.data
 
   header.innerHTML = `Weather Forecast for ${currentWeather.city}`
-
   current.innerHTML = daysOfWeek[currentWeather.date]
-
   tomorrow.innerHTML = daysOfWeek[currentWeather.date+1]
-
   twodays.innerHTML = daysOfWeek[currentWeather.date+2]
-
   summary.innerHTML = report[0].icon
-
   highLow.innerHTML = `${report[0].temperatureHigh} / ${report[0].temperatureLow} F`
-
   img.src = `../img/${report[0].icon}.png`;
 }
-
-
 
 search.addEventListener('click', getWeather);
 input
 input.addEventListener('input', logInput);
-
-
