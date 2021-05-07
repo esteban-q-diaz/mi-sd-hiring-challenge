@@ -7,7 +7,8 @@
     "start": "./node_modules/parcel-bundler/bin/cli.js  index.html",
     "dev": "parcel index.html --open",
     "build": "parcel build index.html",
-    "pack": "npm run pack"
+    "pack": "npm run pack",
+    "heroku-postbuild": "parcel build index.html"
   },
   "dependencies": {
     "dateformat": "^4.5.1",
