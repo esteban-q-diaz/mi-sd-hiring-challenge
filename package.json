@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "./node_modules/parcel-bundler/bin/cli.js  index.html",
     "dev": "parcel index.html --open",
     "build": "parcel build index.html",
     "pack": "npm run pack"
