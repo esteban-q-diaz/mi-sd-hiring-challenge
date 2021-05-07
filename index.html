@@ -13,6 +13,29 @@
       <h1 class="title">Weather App</h1>
     </header>
 
+    <form id="modal">
+      <h1> Take a quick poll</h1>
+
+      <select name="occasion" id="occasion">
+        <option value="athletic">Athletic</option>
+        <option value="outdoors">Outdoors</option>
+      </select>
+      <select name="weather" id="weather" >
+        <option value="sunny">Sunny</option>
+        <option cloudy="sunny">Cloudy</option>
+      </select>
+
+      <select name="gender" id="gender">
+        <option value="women">Female</option>
+        <option value="men">Male</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Go to Weather App" id="enter-btn">
+    </form>
+
+
+
+
     <div class="search-container">
         <input type="text" id="city-input" placeholder="Search by Zipcode..."/>
         <input type="submit" value="Search" id="input-btn" />
@@ -24,9 +47,17 @@
         <p id="date">-------</p>
         <p id="temp"></p>
         <p id="summary"></p>
-        <img id="weather-img" src='' />
+        <img id="weather-img" src='https://img.freepik.com/free-vector/coloured-weather-icons-collection_1126-30.jpg?size=338&ext=jpg' alt=''/>
       </main>
     </div>
+
+    <div id="image-container">
+      <img class='img' src="" alt="">
+      <img class='img' src="" alt="">
+      <img class='img' src="" alt="">
+      <img class='img' src="" alt="">
+    </div>
+
   </div>
 </body>
 <script src="src/app.js"></script>

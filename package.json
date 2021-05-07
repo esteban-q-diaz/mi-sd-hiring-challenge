@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "parcel index.html",
+    "dev": "parcel index.html --open",
     "build": "parcel build index.html",
     "pack": "npm run pack"
   },
   "dependencies": {
-    "dateformat": "^4.5.1"
+    "dateformat": "^4.5.1",
+    "obj": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
