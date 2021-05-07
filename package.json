@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "dateformat": "^4.5.1",
-    "obj": "^0.3.0"
+    "obj": "^0.3.0",
+    "parcel-bundler": "1.12.4"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
