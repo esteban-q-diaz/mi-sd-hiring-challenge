@@ -1,51 +1,69 @@
 import { convertDate } from "./utils";
-import { daysOfWeek } from './days'
 import { fetchLocation, fetchWeather} from './weatherApi'
-
+import { fetchProducts } from './productApi'
+const dateFormat = require("dateformat");
 
 // Manage State
 let zipcode;
+let productData = {occasion: '', weather: '', gender: ''}
 let currentWeather = {
 }
+const date = new Date();
+const formattedDate = dateFormat(date, "dddd mmmm dS, yyyy");
 
 // Query Selectors
-let search = document.getElementById("input-btn")
-let input = document.getElementById('city-input')
-let location = document.getElementById('location')
-let date = document.getElementById('date')
-let temp = document.getElementById('temp')
-let summary = document.getElementById('summary')
-let img = document.getElementById('weather-img')
+const search = document.getElementById("input-btn")
+const input = document.getElementById('city-input')
+const location = document.getElementById('location')
+const displayDate = document.getElementById('date')
+const temp = document.getElementById('temp')
+const summary = document.getElementById('summary')
+const img = document.getElementById('weather-img')
+const modal = document.getElementById('modal')
+const enterBtn = document.getElementById('enter-btn')
+const select = document.querySelectorAll('select')
+const image = document.querySelectorAll('.img')
+
+const getProducts = async (e) => {
+  e.preventDefault()
+  let {occasion, weather, gender} = productData
+  modal.style.visibility = 'hidden';
+  occasion = select[0].value
+  weather = select[1].value
+  gender = select[2].value
+  const letter = await fetchProducts(occasion, weather, gender)
+
+  image[0].src = letter[0].img
+  image[1].src = letter[1].img
+  image[2].src = letter[2].img
+  image[3].src = letter[3].img
+}
 
 // Controller - Get Weather Data / Update State
-export let response = (weatherInfo) => {
-  currentWeather = weatherInfo
-  console.log(currentWeather)
-  updateDOM()
-}
-
-let logInput = (e) => {
-  let search = e.target.value
-  zipcode = search
-}
-
-let getWeather = async (e) => {
+const getWeather = async (e) => {
   e.preventDefault()
-  fetchLocation(zipcode)
+  zipcode = input.value
+
+  const location = await fetchLocation(zipcode)
+  currentWeather = location
+  const weather = await fetchWeather(location, date)
+  currentWeather.info = weather
+
+  updateDOM()
 }
 
 
 // View - Update DOM
 let updateDOM = () => {
-  let report = currentWeather.info.daily.data
+  const { city, regionCode, info:{daily:{data}} } = currentWeather
+  const { temperatureHigh, temperatureLow, icon } = data[0]
 
-  location.innerHTML = `${currentWeather.city}, ${currentWeather.state}`
-  date.innerHTML = currentWeather.date
-  temp.innerHTML = `${Math.round(report[0].temperatureHigh)}°F / ${Math.round(report[0].temperatureLow)}°F`
-  summary.innerHTML = report[0].icon
-  img.src = `https://weather-app-git.s3-us-west-1.amazonaws.com/${report[0].icon}.png`
+  location.innerHTML = `${city}, ${regionCode}`
+  displayDate.innerHTML = formattedDate
+  temp.innerHTML = `${Math.round(temperatureHigh)}°F / ${Math.round(temperatureLow)}°F`
+  summary.innerHTML = icon
+  img.src = `https://weather-app-git.s3-us-west-1.amazonaws.com/${icon}.png`
 }
 
 search.addEventListener('click', getWeather);
-input
-input.addEventListener('input', logInput);
+enterBtn.addEventListener('click', getProducts);

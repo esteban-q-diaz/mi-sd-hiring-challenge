@@ -1,29 +1,13 @@
-import { response } from '../src/app';
-var dateFormat = require("dateformat");
-
-export let fetchLocation = (zipcode) => {
-  fetch(`https://se-weather-api.herokuapp.com/api/v1/geo?zip_code=${zipcode}`)
-    .then(response => response.json())
-    .then(data => fetchWeather(data));
+export const fetchLocation = (zipcode) => {
+ return fetch(`https://se-weather-api.herokuapp.com/api/v1/geo?zip_code=${zipcode}`)
+   .then(response => response.json())
+   .catch(e => console.log('zip code is not valid', e))
 }
 
-export let fetchWeather = (data) => {
-  let date = new Date();
-  let formatedDate = dateFormat(date, "dddd mmmm dS, yyyy")
-  let newd = new Date()
+export const fetchWeather = (data, date) => {
+ const newDate= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
 
-  let newDate= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
-
-  let weatherData = {
-    city: data.city,
-    state: data.regionCode,
-    lat: data.latitude,
-    long: data.longitude,
-    date: formatedDate,
-  }
-  fetch(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${weatherData.lat}&${weatherData.long}=-104.2&date=${newDate}`)
-    .then(response => response.json())
-    .then(res => weatherData.info = res)
-    .then(() => response(weatherData))
+ return fetch(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${data.latitude}&${data.longitude}=-104.2&date=${newDate}`)
+   .then(response => response.json())
+   .catch(e => console.log('Error getting weather data:', e))
 }
-
