@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "index.html",
     "dev": "parcel index.html --open",
-    "build": "npx parcel build index.html",
+    "build": "parcel build index.html",
     "pack": "npm run pack"
   },
   "dependencies": {
